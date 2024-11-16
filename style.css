@@ -1,0 +1,53 @@
+/* Ensure the entire body and html elements take up the full height of the viewport */
+html,
+body {
+	height: 100%;
+	/* Adds padding to body so no content touches the screen edges */
+	padding: 10px;
+}
+
+body {
+	/* Apply a linear gradient overlay with a black background and 50% opacity */
+	background-image:
+		linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		/* Set the background image URL */
+		url('https://cdn.pixabay.com/photo/2016/08/30/16/05/leaf-1631181_1280.jpg');
+
+	/* Ensure the background image completely covers the page */
+	background-size: cover;
+	/* Center the background image so it’s always centered in the viewport */
+	background-position: center;
+	/* Prevent the image from repeating across the page */
+	background-repeat: no-repeat;
+	/* Set a default sans-serif font family for the body text */
+	font-family: Arial, Helvetica, sans-serif;
+	/* Set the text color to a light color (whitesmoke) to contrast with the dark background */
+	color: whitesmoke;
+}
+
+/* Style for h2 headers with underlined text */
+h2 {
+	text-decoration: underline;
+}
+
+/* Class to color "easy" tasks in green */
+.easy_task {
+	color: green;
+}
+
+/* Class to color "medium" tasks in orange */
+.medium_task {
+	color: orange;
+}
+
+/* Class to color "hard" tasks in red */
+.hard_task {
+	color: red;
+}
+
+/* Container class for some element with padding and a dashed outline for visual emphasis */
+.container {
+	padding: 5px;
+	/* Add a blue dashed outline around the container */
+	outline: 2px dashed blue;
+}
