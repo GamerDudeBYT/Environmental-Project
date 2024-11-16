@@ -3,9 +3,7 @@
 
 <head>
 	<title>Eco Tracker</title>
-	<script src="script.js"></script>
 	<link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
@@ -13,12 +11,18 @@
 	<div class="container">
 		<h2>What the tracker does</h2>
 		<p>
-			The tracker is designed to encourage you to be more eco friendly. You get rewards for completing tasks.
-			Harder
-			tasks will give you more points and tasks from the random task giver will also be worth more.
+			The tracker is designed to encourage you to be more eco-friendly. You get rewards for completing tasks.
+			Harder tasks will give you more points, and tasks from the random task giver will also be worth more.
 		</p>
 	</div>
+	<button onclick="choose_random_task('easy')">Random Task Easy</button>
+	<button onclick="choose_random_task('medium')">Random Task Medium</button>
+	<button onclick="choose_random_task('hard')">Random Task Hard</button>
+	<p id="testTask">testTask</p>
+	<p id="testDifficulty">testDifficulty</p>
 
+	<!-- Move the script to the end of the body so it's loaded after DOM content -->
+	<script src="script.js"></script>
 </body>
 
 </html>
