@@ -1,4 +1,10 @@
 /* Ensure the entire body and html elements take up the full height of the viewport */
+:root {
+	--task_easy: lightgreen;
+	--task_medium: orange;
+	--task_hard: red;
+}
+
 html,
 body {
 	height: 100%;
@@ -7,21 +13,17 @@ body {
 }
 
 body {
-	/* Apply a linear gradient overlay with a black background and 50% opacity */
-	background-image:
-		linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-		/* Set the background image URL */
-		url('https://cdn.pixabay.com/photo/2016/08/30/16/05/leaf-1631181_1280.jpg');
-
-	/* Ensure the background image completely covers the page */
-	background-size: cover;
-	/* Center the background image so it’s always centered in the viewport */
+	position: relative;
+	/* Apply a subtle, repeating background pattern */
+	background-color: #3da600;
+	background-image: url("images/3px-tile.png");
+	/* Example pattern from Transparent Textures */
+	background-size: auto;
 	background-position: center;
-	/* Prevent the image from repeating across the page */
-	background-repeat: no-repeat;
+	background-repeat: repeat;
 	/* Set a default sans-serif font family for the body text */
 	font-family: Arial, Helvetica, sans-serif;
-	/* Set the text color to a light color (whitesmoke) to contrast with the dark background */
+	/* Set the text color to a dark color to ensure readability */
 	color: whitesmoke;
 }
 
@@ -30,24 +32,173 @@ h2 {
 	text-decoration: underline;
 }
 
-/* Class to color "easy" tasks in green */
-.easy_task {
-	color: green;
+.task_easy.border {
+	outline: 2px solid var(--task_easy);
 }
 
-/* Class to color "medium" tasks in orange */
-.medium_task {
-	color: orange;
+.task_easy.text {
+	color: var(--task_easy);
 }
 
-/* Class to color "hard" tasks in red */
-.hard_task {
-	color: red;
+.task_medium.border {
+	outline: 2px solid var(--task_medium);
 }
 
-/* Container class for some element with padding and a dashed outline for visual emphasis */
-.container {
-	padding: 5px;
-	/* Add a blue dashed outline around the container */
-	outline: 2px dashed blue;
+.task_medium.text {
+	color: var(--task_medium);
+}
+
+.task_hard.border {
+	outline: 2px solid var(--task_hard);
+}
+
+.task_hard.text {
+	color: var(--task_hard);
+}
+
+/* Container class with a blue dashed border for visual emphasis */
+.dashed-container {
+	padding: 3px 10px;
+	/* Add a blue solid border around the container */
+	border: 3px solid rgb(24, 171, 34);
+	border-radius: 5px;
+}
+
+.task_button {
+	display: inline-block;
+	padding: 10px 20px;
+	margin: 10px 0;
+	background-color: #005f00;
+	/* Dark green background color */
+	color: whitesmoke;
+	/* Light text color for contrast */
+	border: 2px solid #004d00;
+	/* Slightly darker border color */
+	border-radius: 5px;
+	/* Rounded corners for a softer look */
+	text-align: center;
+	text-decoration: none;
+	/* Remove underline from text */
+	font-size: 16px;
+	/* Font size for readability */
+	font-weight: bold;
+	/* Make text bold */
+	transition: background-color 0.3s, color 0.3s;
+	/* Smooth transition for hover effect */
+}
+
+/* Button Hover Effect */
+.task_button:hover {
+	background-color: #004d00;
+	/* Darker background on hover */
+	color: #e0ffe0;
+	/* Light green text on hover */
+}
+
+/* Button Focus Effect */
+.task_button:focus {
+	outline: none;
+	/* Remove default focus outline */
+	box-shadow: 0 0 5px 2px #005f00;
+	/* Add a subtle glow effect */
+}
+
+/* Task Completed Button Style */
+.task_button.completed {
+	display: inline-block;
+	padding: 10px 20px;
+	margin: 10px 0;
+	background-color: #0a92cd;
+	/* Dark green background color */
+	color: whitesmoke;
+	/* Light text color for contrast */
+	border: 2px solid #007276;
+	/* Slightly darker border color */
+	border-radius: 5px;
+	/* Rounded corners for a softer look */
+	text-align: center;
+	text-decoration: none;
+	/* Remove underline from text */
+	font-size: 16px;
+	/* Font size for readability */
+	font-weight: bold;
+	/* Make text bold */
+	transition: background-color 0.3s, color 0.3s;
+	/* Smooth transition for hover effect */
+}
+
+/* Task Completed Button Hover Effect */
+.task_button.completed:hover {
+	background-color: #007276;
+	/* Darker background on hover */
+	color: #e0ffe0;
+	/* Light green text on hover */
+}
+
+/* Task Completed Button Focus Effect */
+.task_button.completed:focus {
+	outline: none;
+	/* Remove default focus outline */
+	box-shadow: 0 0 5px 2px #005366;
+	/* Add a subtle glow effect */
+}
+
+/* Reject Task Button Style */
+.task_button.reject {
+	display: inline-block;
+	padding: 10px 20px;
+	margin: 10px 0;
+	background-color: #cc0000;
+	/* Dark red background color */
+	color: whitesmoke;
+	/* Light text color for contrast */
+	border: 2px solid #990000;
+	/* Slightly darker border color */
+	border-radius: 5px;
+	/* Rounded corners for a softer look */
+	text-align: center;
+	text-decoration: none;
+	/* Remove underline from text */
+	font-size: 16px;
+	/* Font size for readability */
+	font-weight: bold;
+	/* Make text bold */
+	transition: background-color 0.3s, color 0.3s;
+	/* Smooth transition for hover effect */
+}
+
+/* Reject Task Button Hover Effect */
+.task_button.reject:hover {
+	background-color: #990000;
+	/* Darker background on hover */
+	color: #ffcccc;
+	/* Light red text on hover */
+}
+
+/* Reject Task Button Focus Effect */
+.task_button.reject:focus {
+	outline: none;
+	/* Remove default focus outline */
+	box-shadow: 0 0 5px 2px #cc0000;
+	/* Add a subtle glow effect */
+}
+
+/* Flex container to align items */
+.button-container.left {
+	display: flex;
+	justify-content: flex-start;
+	/* Align buttons to the right */
+	gap: 10px;
+	/* Add some space between the buttons */
+}
+
+/* Flex container to align items vertically */
+.button-container.right {
+	display: flex;
+	flex-direction: column;
+	/* Stack buttons vertically */
+	justify-content: flex-end;
+	/* Align buttons to the right */
+	gap: 10px;
+	/* Add some space between the buttons */
 }

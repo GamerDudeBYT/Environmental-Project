@@ -8,20 +8,32 @@
 
 <body>
 	<h1>Eco Tracker</h1>
-	<div class="container">
+	<div class="dashed-container">
 		<h2>What the tracker does</h2>
 		<p>
-			The tracker is designed to encourage you to be more eco-friendly. You get rewards for completing tasks.
-			Harder tasks will give you more points, and tasks from the random task giver will also be worth more.
+			The tracker is designed to encourage you to be more eco-friendly by setting you random tasks at your own
+			pace with 3 difficulty levels:
 		</p>
+		<ul>
+			<li class="easy_task">Easy</li>
+			<li class="medium_task">Medium</li>
+			<li class="hard_task">Hard</li>
+		</ul>
 	</div>
-	<button onclick="choose_random_task('easy')">Random Task Easy</button>
-	<button onclick="choose_random_task('medium')">Random Task Medium</button>
-	<button onclick="choose_random_task('hard')">Random Task Hard</button>
-	<p id="testTask">testTask</p>
-	<p id="testDifficulty">testDifficulty</p>
+	<div class="dashed-container">
+		<h2>Tasks:</h2>
+		<div class="button-container left">
+			<button class="task_button" onclick="choose_random_task('easy')">Random Easy Task</button>
+			<button class="task_button" onclick="choose_random_task('medium')">Random Medium Task</button>
+			<button class="task_button" onclick="choose_random_task('hard')">Random Hard Task</button>
+		</div>
 
-	<!-- Move the script to the end of the body so it's loaded after DOM content -->
+		<div id="tasks_list" class="tasks_list">
+			<!-- New tasks will appear here -->
+		</div>
+	</div>
+
+	<!-- Move the script tag to the bottom -->
 	<script src="script.js"></script>
 </body>
 
