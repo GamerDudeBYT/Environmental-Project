@@ -1,6 +1,5 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {
+	// Define the random tasks
 	const random_tasks = [
 		{ task: "Take the compost out", description: "Dispose of organic waste by transferring it to a compost bin.", difficulty: "easy" },
 		{ task: "Take the recycling out", description: "Gather and sort recyclables, then place them in the appropriate bin.", difficulty: "easy" },
@@ -30,22 +29,25 @@ document.addEventListener("DOMContentLoaded", () => {
 		{ task: "Commit to zero waste for a month", description: "Aim to produce no waste for an entire month, focusing on reducing, reusing, and recycling.", difficulty: "hard" }
 	];
 
-	try {
-		var eco_score = document.cookie
+	// Function to get the eco_score from cookies, default to 0 if not found
+	function getEcoScore() {
+		const eco_score_cookie = document.cookie
 			.split("; ")
-			.find((row) => row.startsWith("eco_score="))
-			?.split("=")[1];
-	} catch (error) {
-		console.log("Could not pull score from cookie. Defaulting to 0");
-		var eco_score = 0;
-	};
+			.find((row) => row.startsWith("eco_score="));
+		return eco_score_cookie ? parseInt(eco_score_cookie.split("=")[1], 10) : 0;
+	}
 
-	eco_score = 0; // it breaks
+	// Get the eco_score from cookie or default to 0
+	let eco_score = getEcoScore();
 
+	// Display the current eco_score in the DOM
+	const eco_score_p = document.getElementById("ecoscore");
+	eco_score_p.innerHTML = eco_score;
+
+	// The div where the tasks will be displayed
 	const tasks_list_div = document.getElementById("tasks_list");
 
-	const eco_score_p = document.getElementById("ecoscore");
-
+	// Function to choose a random task based on difficulty
 	window.choose_random_task = (difficulty) => {
 		const random_tasks_filtered = random_tasks.filter(task => task.difficulty === difficulty);
 		if (random_tasks_filtered.length === 0) {
@@ -80,6 +82,13 @@ document.addEventListener("DOMContentLoaded", () => {
 			new_task_reject_button.parentElement.parentElement.remove();
 		});
 
+		// Handle button clicks based on difficulty
+		const updateEcoScore = (points) => {
+			eco_score += points;
+			document.cookie = `eco_score=${eco_score}; path=/; max-age=31536000`; // Save the score in a cookie (1 year)
+			eco_score_p.innerHTML = eco_score;
+		};
+
 		switch (random_task.difficulty) {
 			case "easy":
 				new_task_difficulty.innerHTML = "Easy";
@@ -87,12 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
 				new_task_div.classList.add("task_easy", "border");
 
 				new_task_completed_button.addEventListener("click", () => {
-					// When the complete button is clicked
-					eco_score += 100; // Easy score
-					eco_score_p.innerHTML = eco_score;
+					updateEcoScore(100); // Easy task
 					new_task_completed_button.parentElement.parentElement.remove();
 				});
-
 				break;
 			case "medium":
 				new_task_difficulty.innerHTML = "Medium";
@@ -100,13 +106,9 @@ document.addEventListener("DOMContentLoaded", () => {
 				new_task_div.classList.add("task_medium", "border");
 
 				new_task_completed_button.addEventListener("click", () => {
-					// When the complete button is clicked
-					eco_score += 200; // Medium Score
-					document.cookie = `eco_score=${eco_score}; `;
-					eco_score_p.innerHTML = eco_score;
+					updateEcoScore(200); // Medium task
 					new_task_completed_button.parentElement.parentElement.remove();
 				});
-
 				break;
 			case "hard":
 				new_task_difficulty.innerHTML = "Hard";
@@ -114,19 +116,16 @@ document.addEventListener("DOMContentLoaded", () => {
 				new_task_div.classList.add("task_hard", "border");
 
 				new_task_completed_button.addEventListener("click", () => {
-					// When the complete button is clicked
-					eco_score += 300; // Hard Score
-					document.cookie = `eco_score=${eco_score}; `;
-					eco_score_p.innerHTML = eco_score;
+					updateEcoScore(300); // Hard task
 					new_task_completed_button.parentElement.parentElement.remove();
 				});
-
 				break;
 			default:
 				console.error("Error setting difficulty for new task");
 				return;
 		}
 
+		// Assemble the task and append it to the list
 		new_task_div.appendChild(new_task_title);
 		new_task_div.appendChild(new_task_description);
 		new_task_div.appendChild(new_task_difficulty);
