@@ -21,13 +21,12 @@
 			<h2>What the tracker does</h2>
 			<p>
 				Eco tracker website where you get set tasks at your own pace and get encouraged to complete them by
-				earning
-				points for completing tasks. You get more points for harder tasks. Tasks can be rejected if you want and
-				you
-				can have any amount of tasks at any time. You can choose what level tasks you get set. It saves locally
-				by
+				earning points for completing tasks. You get more points for harder tasks. Tasks can be rejected if you
+				want and
+				you can have any amount of tasks at any time. You can choose what level tasks you get set. It saves
+				locally by
 				using website cookies. The tasks have 3 levels of difficulty:
-				WE USE COOKIES TO SAVE SCORE 
+				<br>WE USE COOKIES TO SAVE SCORE
 			</p>
 			<ul>
 				<li class="task_easy text">Easy: 100 Points</li>
@@ -39,12 +38,18 @@
 		<section class="inset-container">
 			<h2>Tasks:</h2>
 			<div class="button-container left">
-				<button class="task_button task_easy text" onclick="choose_random_task('easy')">Random Easy
-					Task</button>
-				<button class="task_button task_medium text" onclick="choose_random_task('medium')">Random Medium
-					Task</button>
-				<button class="task_button task_hard text" onclick="choose_random_task('hard')">Random Hard
-					Task</button>
+				<button class="task_button task_easy text" onclick="choose_random_task('easy')"
+					aria-label="Get a random easy task">
+					<span class="button-icon">✔️</span> Random Easy Task
+				</button>
+				<button class="task_button task_medium text" onclick="choose_random_task('medium')"
+					aria-label="Get a random medium task">
+					<span class="button-icon">⚙️</span> Random Medium Task
+				</button>
+				<button class="task_button task_hard text" onclick="choose_random_task('hard')"
+					aria-label="Get a random hard task">
+					<span class="button-icon">🔥</span> Random Hard Task
+				</button>
 			</div>
 
 			<div id="tasks_list" class="tasks_list">

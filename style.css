@@ -1,15 +1,10 @@
 /* Define color variables */
 :root {
 	--task_easy: #66bb6a;
-	/* Adjusted to a more subtle green */
 	--task_medium: #ff9800;
-	/* Adjusted to a more visible orange */
 	--task_hard: #e53935;
-	/* Adjusted to a darker red */
 	--bg_color: #388e3c;
-	/* Darker green background for better contrast */
 	--text_color: #ffffff;
-	/* White text color for better readability */
 }
 
 /* Ensure the entire body and html elements take up the full height of the viewport */
@@ -28,14 +23,12 @@ body {
 	background-repeat: repeat;
 	font-family: Arial, Helvetica, sans-serif;
 	color: var(--text_color);
-	/* Use white text for better contrast */
 }
 
 /* Style for h2 headers with underlined text */
 h2 {
 	text-decoration: underline;
 	color: var(--text_color);
-	/* Ensure the color matches */
 }
 
 /* Button colors with adjusted background and text colors for good contrast */
@@ -77,7 +70,6 @@ h2 {
 	padding: 10px 20px;
 	margin: 10px 0;
 	background-color: #006400;
-	/* Dark green for better contrast */
 	color: #ffffff;
 	border: 2px solid #004d00;
 	border-radius: 5px;
@@ -86,13 +78,20 @@ h2 {
 	font-size: 16px;
 	font-weight: bold;
 	transition: background-color 0.3s, color 0.3s;
+	width: auto;
+	white-space: nowrap;
+}
+
+/* Add a simple icon before the button text */
+.button-icon {
+	margin-right: 8px;
+	font-size: 18px;
 }
 
 /* Button Hover Effect */
 .task_button:hover {
 	background-color: #004d00;
 	color: #e0ffe0;
-	/* Light green text for contrast on hover */
 }
 
 /* Button Focus Effect */
@@ -121,7 +120,6 @@ h2 {
 .task_button.reject:hover {
 	background-color: #990000;
 	color: #ffcccc;
-	/* Light red text on hover */
 }
 
 /* Button Containers */
