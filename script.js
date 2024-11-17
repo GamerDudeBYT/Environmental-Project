@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-	// Define the random tasks
+	// Define the random tasks seperated into easy, medium and hard
 	const random_tasks = [
 		{ task: "Take the compost out", description: "Dispose of organic waste by transferring it to a compost bin.", difficulty: "easy" },
 		{ task: "Take the recycling out", description: "Gather and sort recyclables, then place them in the appropriate bin.", difficulty: "easy" },
@@ -76,6 +76,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// Function to add a task to the DOM
 	function choose_random_task(random_task) {
+		// This is all the same as adding the tags in manually in HTML
+		// document.createElement() makes an element specified by the text inside the function.
 		const new_task_div = document.createElement('div');
 		const new_task_title = document.createElement('h3');
 		const new_task_description = document.createElement('p');
@@ -86,9 +88,11 @@ document.addEventListener("DOMContentLoaded", () => {
 		const new_task_completed_button = document.createElement('button');
 		const new_task_reject_button = document.createElement('button');
 
+		// .innerHTML is the text that you see on the screen
 		new_task_title.innerHTML = random_task.task;
 		new_task_description.innerHTML = random_task.description;
 
+		// This is the same as adding a CSS class in the HTML
 		new_task_button_container.classList.add("button_container", "right");
 
 		new_task_completed_button.innerHTML = "Completed";
@@ -97,6 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		new_task_reject_button.innerHTML = "Reject";
 		new_task_reject_button.classList.add("task_button", "reject");
 
+		// .addEventListener("click") is the same as adding an onclick bit to the button
 		new_task_reject_button.addEventListener("click", () => {
 			removeTask(random_task);
 			new_task_reject_button.parentElement.parentElement.remove();
@@ -110,7 +115,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			removeTask(random_task);
 		};
 
+		// A switch statement is the same as an if, elif and else statement the default bit is the else
 		switch (random_task.difficulty) {
+			// Easy Difficulty
 			case "easy":
 				new_task_difficulty.innerHTML = "Easy";
 				new_task_difficulty.classList.add("task_easy", "text");
@@ -121,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					new_task_completed_button.parentElement.parentElement.remove();
 				});
 				break;
+			// Medium Difficulty
 			case "medium":
 				new_task_difficulty.innerHTML = "Medium";
 				new_task_difficulty.classList.add("task_medium", "text");
@@ -131,6 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					new_task_completed_button.parentElement.parentElement.remove();
 				});
 				break;
+			// Hard Difficulty
 			case "hard":
 				new_task_difficulty.innerHTML = "Hard";
 				new_task_difficulty.classList.add("task_hard", "text");
@@ -141,6 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					new_task_completed_button.parentElement.parentElement.remove();
 				});
 				break;
+			// Error getting the difficulty
 			default:
 				console.error("Error setting difficulty for new task");
 				return;
