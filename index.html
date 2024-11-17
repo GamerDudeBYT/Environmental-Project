@@ -7,44 +7,57 @@
 </head>
 
 <body>
-	<h1>Eco Tracker</h1>
-	</div>
-	<div class="inset-container">
-		<h2>Your eco score is:</h2>
-		<p id="ecoscore">0</p>
-	</div>
-	<div class="inset-container">
-		<h2>What the tracker does</h2>
-		<p>
-			Eco tracker website where you get set tasks at your own pace and get encouraged to complete them by earning
-			points for completing tasks. You get more points for harder tasks. Tasks can be rejected if you want and you
-			can have any amount of tasks at any time. You can choose what level tasks you get set. It saves locally by
-			using website cookies. The tasks have 3 levels of difficulty:
+	<header>
+		<h1>Eco Tracker</h1>
+	</header>
 
-		</p>
-		<ul>
-			<li class="task_easy text">Easy: 100 Points</li>
-			<li class="task_medium text">Medium: 200 Points</li>
-			<li class="task_hard text">Hard: 300 Points</li>
-		</ul>
-	</div>
-	<div class="inset-container">
-		<h2>Tasks:</h2>
-		<div class="button-container left">
-			<button class="task_button task_easy text" onclick="choose_random_task('easy')">Random Easy Task</button>
-			<button class="task_button task_medium text" onclick="choose_random_task('medium')">Random Medium
-				Task</button>
-			<button class="task_button task_hard text" onclick="choose_random_task('hard')">Random Hard Task</button>
-		</div>
+	<main>
+		<section class="inset-container">
+			<h2>Your eco score is:</h2>
+			<p id="ecoscore">0</p>
+		</section>
 
+		<section class="inset-container">
+			<h2>What the tracker does</h2>
+			<p>
+				Eco tracker website where you get set tasks at your own pace and get encouraged to complete them by
+				earning
+				points for completing tasks. You get more points for harder tasks. Tasks can be rejected if you want and
+				you
+				can have any amount of tasks at any time. You can choose what level tasks you get set. It saves locally
+				by
+				using website cookies. The tasks have 3 levels of difficulty:
+			</p>
+			<ul>
+				<li class="task_easy text">Easy: 100 Points</li>
+				<li class="task_medium text">Medium: 200 Points</li>
+				<li class="task_hard text">Hard: 300 Points</li>
+			</ul>
+		</section>
 
-		<div id="tasks_list" class="tasks_list">
-			<!-- New tasks will appear here -->
+		<section class="inset-container">
+			<h2>Tasks:</h2>
+			<div class="button-container left">
+				<button class="task_button task_easy text" onclick="choose_random_task('easy')">Random Easy
+					Task</button>
+				<button class="task_button task_medium text" onclick="choose_random_task('medium')">Random Medium
+					Task</button>
+				<button class="task_button task_hard text" onclick="choose_random_task('hard')">Random Hard
+					Task</button>
+			</div>
 
-		</div>
+			<div id="tasks_list" class="tasks_list">
+				<!-- New tasks will appear here -->
+			</div>
+		</section>
+	</main>
 
-		<!-- Move the script tag to the bottom -->
-		<script src="script.js"></script>
+	<footer>
+		<!-- Any footer content could go here -->
+	</footer>
+
+	<!-- Move the script tag to the bottom -->
+	<script src="script.js"></script>
 </body>
 
 </html>
