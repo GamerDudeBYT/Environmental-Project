@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	reset_score_button.addEventListener("click", () => {
 		document.cookie = `eco_score=0; path=/; max-age=31536000`; // Save the score in a cookie (1 year)
+		eco_score = 0;
 		eco_score_p.innerHTML = eco_score;
 	});
 
