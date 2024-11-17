@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", () => {
 	const random_tasks = [
 		{ task: "Take the compost out", description: "Dispose of organic waste by transferring it to a compost bin.", difficulty: "easy" },
@@ -28,7 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
 		{ task: "Commit to zero waste for a month", description: "Aim to produce no waste for an entire month, focusing on reducing, reusing, and recycling.", difficulty: "hard" }
 	];
 
+	var eco_score = 0;
+
 	const tasks_list_div = document.getElementById("tasks_list");
+
+	const eco_score_p = document.getElementById("ecoscore");
 
 	window.choose_random_task = (difficulty) => {
 		const random_tasks_filtered = random_tasks.filter(task => task.difficulty === difficulty);
@@ -62,23 +68,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		new_task_reject_button.addEventListener("click", () => {
 			new_task_reject_button.parentElement.parentElement.remove();
-		})
+		});
 
 		switch (random_task.difficulty) {
 			case "easy":
 				new_task_difficulty.innerHTML = "Easy";
 				new_task_difficulty.classList.add("task_easy", "text");
 				new_task_div.classList.add("task_easy", "border");
+
+				new_task_completed_button.addEventListener("click", () => {
+					// When the complete button is clicked
+					eco_score += 100; // Easy score
+					eco_score_p.innerHTML = eco_score;
+					new_task_completed_button.parentElement.parentElement.remove();
+				});
+
 				break;
 			case "medium":
 				new_task_difficulty.innerHTML = "Medium";
 				new_task_difficulty.classList.add("task_medium", "text");
 				new_task_div.classList.add("task_medium", "border");
+
+				new_task_completed_button.addEventListener("click", () => {
+					// When the complete button is clicked
+					eco_score += 200; // Medium Score
+					eco_score_p.innerHTML = eco_score;
+					new_task_completed_button.parentElement.parentElement.remove();
+				});
+
 				break;
 			case "hard":
 				new_task_difficulty.innerHTML = "Hard";
 				new_task_difficulty.classList.add("task_hard", "text");
 				new_task_div.classList.add("task_hard", "border");
+
+				new_task_completed_button.addEventListener("click", () => {
+					// When the complete button is clicked
+					eco_score += 300; // Hard Score
+					eco_score_p.innerHTML = eco_score;
+					new_task_completed_button.parentElement.parentElement.remove();
+				});
+
 				break;
 			default:
 				console.error("Error setting difficulty for new task");
