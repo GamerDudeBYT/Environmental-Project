@@ -30,7 +30,17 @@ document.addEventListener("DOMContentLoaded", () => {
 		{ task: "Commit to zero waste for a month", description: "Aim to produce no waste for an entire month, focusing on reducing, reusing, and recycling.", difficulty: "hard" }
 	];
 
-	var eco_score = 0;
+	try {
+		var eco_score = document.cookie
+			.split("; ")
+			.find((row) => row.startsWith("eco_score="))
+			?.split("=")[1];
+	} catch (error) {
+		console.log("Could not pull score from cookie. Defaulting to 0");
+		var eco_score = 0;
+	};
+
+	eco_score = 0; // it breaks
 
 	const tasks_list_div = document.getElementById("tasks_list");
 
@@ -92,6 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				new_task_completed_button.addEventListener("click", () => {
 					// When the complete button is clicked
 					eco_score += 200; // Medium Score
+					document.cookie = `eco_score=${eco_score}; `;
 					eco_score_p.innerHTML = eco_score;
 					new_task_completed_button.parentElement.parentElement.remove();
 				});
@@ -105,6 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				new_task_completed_button.addEventListener("click", () => {
 					// When the complete button is clicked
 					eco_score += 300; // Hard Score
+					document.cookie = `eco_score=${eco_score}; `;
 					eco_score_p.innerHTML = eco_score;
 					new_task_completed_button.parentElement.parentElement.remove();
 				});
