@@ -37,6 +37,22 @@ document.addEventListener("DOMContentLoaded", () => {
 		return eco_score_cookie ? parseInt(eco_score_cookie.split("=")[1], 10) : 0;
 	}
 
+	// Function to get uncompleted tasks from cookies
+	function getUncompletedTasks() {
+		const tasks_cookie = document.cookie
+			.split("; ")
+			.find((row) => row.startsWith("uncompleted_tasks="));
+		return tasks_cookie ? JSON.parse(decodeURIComponent(tasks_cookie.split("=")[1])) : [];
+	}
+
+	// Save uncompleted tasks to cookies
+	function saveUncompletedTasks(tasks) {
+		document.cookie = `uncompleted_tasks=${encodeURIComponent(JSON.stringify(tasks))}; path=/; max-age=31536000`;
+	}
+
+	// Load saved uncompleted tasks from cookies
+	const saved_tasks = getUncompletedTasks();
+
 	// Get the eco_score from cookie or default to 0
 	let eco_score = getEcoScore();
 
@@ -55,16 +71,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	// The div where the tasks will be displayed
 	const tasks_list_div = document.getElementById("tasks_list");
 
-	// Function to choose a random task based on difficulty
-	window.choose_random_task = (difficulty) => {
-		const random_tasks_filtered = random_tasks.filter(task => task.difficulty === difficulty);
-		if (random_tasks_filtered.length === 0) {
-			console.error(`No tasks available for difficulty: ${difficulty}`);
-			return;
-		}
+	// Render tasks from the saved list
+	saved_tasks.forEach(task => choose_random_task(task));
 
-		const random_task = random_tasks_filtered[Math.floor(Math.random() * random_tasks_filtered.length)];
-
+	// Function to add a task to the DOM
+	function choose_random_task(random_task) {
 		const new_task_div = document.createElement('div');
 		const new_task_title = document.createElement('h3');
 		const new_task_description = document.createElement('p');
@@ -87,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		new_task_reject_button.classList.add("task_button", "reject");
 
 		new_task_reject_button.addEventListener("click", () => {
+			removeTask(random_task);
 			new_task_reject_button.parentElement.parentElement.remove();
 		});
 
@@ -95,6 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			eco_score += points;
 			document.cookie = `eco_score=${eco_score}; path=/; max-age=31536000`; // Save the score in a cookie (1 year)
 			eco_score_p.innerHTML = eco_score;
+			removeTask(random_task);
 		};
 
 		switch (random_task.difficulty) {
@@ -144,5 +157,25 @@ document.addEventListener("DOMContentLoaded", () => {
 		new_task_div.appendChild(new_task_button_container);
 
 		tasks_list_div.appendChild(new_task_div);
+	}
+
+	// Function to remove a task from the saved tasks list
+	function removeTask(task) {
+		const updated_tasks = saved_tasks.filter(saved_task => saved_task.task !== task.task);
+		saveUncompletedTasks(updated_tasks);
+	}
+
+	// Function to choose a random task based on difficulty
+	window.choose_random_task = (difficulty) => {
+		const random_tasks_filtered = random_tasks.filter(task => task.difficulty === difficulty);
+		if (random_tasks_filtered.length === 0) {
+			console.error(`No tasks available for difficulty: ${difficulty}`);
+			return;
+		}
+
+		const random_task = random_tasks_filtered[Math.floor(Math.random() * random_tasks_filtered.length)];
+		saved_tasks.push(random_task);
+		saveUncompletedTasks(saved_tasks);
+		choose_random_task(random_task);
 	};
 });
