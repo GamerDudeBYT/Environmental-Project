@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const reset_score_button = document.getElementById("reset_score_button");
 
 	reset_score_button.addEventListener("click", () => {
-		document.cookie = `eco_score=${0}; path=/; max-age=31536000`; // Save the score in a cookie (1 year)
+		document.cookie = `eco_score=0; path=/; max-age=31536000`; // Save the score in a cookie (1 year)
 		eco_score_p.innerHTML = eco_score;
 	});
 
