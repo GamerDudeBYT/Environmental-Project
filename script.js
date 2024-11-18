@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		{ task: "Use a reusable water bottle", description: "Reduce plastic waste by using a reusable water bottle instead of single-use plastic ones.", difficulty: "easy" },
 		{ task: "Donate old clothes", description: "Gather old clothes and donate them to a local charity or thrift store.", difficulty: "easy" },
 
+		{ task: "Turn the heating off for 2 hours", description: "Save energy and lower bills by reducing electricty/gas used for heating", difficulty: "medium" },
 		{ task: "Pick up 10 pieces of litter", description: "Help clean up your local environment by collecting and disposing of litter.", difficulty: "medium" },
 		{ task: "Turn all lights off for 1 hour", description: "Save energy by turning off all lights in your home for one hour.", difficulty: "medium" },
 		{ task: "Walk 1 mile", description: "Improve your fitness and reduce carbon emissions by walking instead of driving.", difficulty: "medium" },
@@ -23,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		{ task: "Participate in a local cleanup", description: "Join a community cleanup event to help remove litter from public spaces.", difficulty: "medium" },
 		{ task: "Start a small vegetable garden", description: "Use available space to grow your own vegetables, reducing the need for store-bought produce.", difficulty: "medium" },
 
+		{ task: "Walk to the shops for 1 month", description: "Save fuel and reduce emissions when travelling the place you routinely visit", difficulty: "hard" },
 		{ task: "Make your own compost bin", description: "Create a compost bin using items you already have at home, like an old bin or container.", difficulty: "hard" },
 		{ task: "Reduce plastic waste for a full week", description: "Challenge yourself to avoid using plastic products for an entire week.", difficulty: "hard" },
 		{ task: "Switch to a plant-based diet for a week", description: "Adopt a plant-based diet for a week to explore healthier eating and reduce your environmental impact.", difficulty: "hard" },
@@ -63,9 +65,12 @@ document.addEventListener("DOMContentLoaded", () => {
 	const reset_score_button = document.getElementById("reset_score_button");
 
 	reset_score_button.addEventListener("click", () => {
-		document.cookie = `eco_score=0; path=/; max-age=31536000`; // Save the score in a cookie (1 year)
-		eco_score = 0;
-		eco_score_p.innerHTML = eco_score;
+		if (confirm("ARE YOU SURE YOU WANT TO WIPE SAVE")) {
+			document.cookie = `eco_score=0; path=/; max-age=31536000`; // Save the score in a cookie (1 year)
+			eco_score = 0;
+			eco_score_p.innerHTML = eco_score;
+		}
+
 	});
 
 	// The div where the tasks will be displayed
