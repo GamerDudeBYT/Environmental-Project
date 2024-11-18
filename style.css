@@ -5,6 +5,7 @@
 	--task_hard: #e53935;
 	--bg_color: #388e3c;
 	--text_color: #ffffff;
+	--border_radius: 5px;
 }
 
 /* Ensure the entire body and html elements take up the full height of the viewport */
@@ -34,6 +35,8 @@ h2 {
 /* Button colors with adjusted background and text colors for good contrast */
 .task_easy.border {
 	outline: 2px solid var(--task_easy);
+	padding: 3px;
+	border-radius: var(--border_radius);
 }
 
 .task_easy.text {
@@ -60,7 +63,7 @@ h2 {
 .inset-container {
 	padding: 3px 10px;
 	border: 3px inset rgb(24, 171, 34);
-	border-radius: 5px;
+	border-radius: var(--border_radius);
 	background-image: url("file:///C:/Users/004215/AppData/Local/Temp/1125807%20(1).jpg");
 }
 
@@ -72,7 +75,7 @@ h2 {
 	background-color: #006400;
 	color: #ffffff;
 	border: 2px solid #004d00;
-	border-radius: 5px;
+	border-radius: var(--border_radius);
 	text-align: center;
 	text-decoration: none;
 	font-size: 16px;
