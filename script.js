@@ -101,10 +101,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		new_task_button_container.classList.add("button_container", "right");
 
 		new_task_completed_button.innerHTML = "Completed";
-		new_task_completed_button.classList.add("task_button", "completed");
+		new_task_completed_button.classList.add("button", "completed");
 
 		new_task_reject_button.innerHTML = "Reject";
-		new_task_reject_button.classList.add("task_button", "reject");
+		new_task_reject_button.classList.add("button", "reject");
 
 		// .addEventListener("click") is the same as adding an onclick bit to the button
 		new_task_reject_button.addEventListener("click", () => {

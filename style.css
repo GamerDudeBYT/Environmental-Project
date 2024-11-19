@@ -68,7 +68,7 @@ h2 {
 }
 
 /* Task Button Styles */
-.task_button {
+.button {
 	display: inline-block;
 	padding: 10px 20px;
 	margin: 10px 0;
@@ -92,35 +92,35 @@ h2 {
 }
 
 /* Button Hover Effect */
-.task_button:hover {
+.button:hover {
 	background-color: #004d00;
 	color: #e0ffe0;
 }
 
 /* Button Focus Effect */
-.task_button:focus {
+.button:focus {
 	outline: none;
 	box-shadow: 0 0 5px 2px #005f00;
 }
 
 /* Task Completed Button Style */
-.task_button.completed {
+.button.completed {
 	background-color: #0a92cd;
 	border: 2px solid #007276;
 }
 
-.task_button.completed:hover {
+.button.completed:hover {
 	background-color: #007276;
 	color: #e0ffe0;
 }
 
 /* Reject Task Button Style */
-.task_button.reject {
+.button.reject {
 	background-color: #cc0000;
 	border: 2px solid #990000;
 }
 
-.task_button.reject:hover {
+.button.reject:hover {
 	background-color: #990000;
 	color: #ffcccc;
 }
