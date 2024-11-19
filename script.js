@@ -194,3 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		choose_random_task(random_task);
 	};
 });
+
+document.addEventListener("contextmenu", (e) => { // Hehe no right click
+	e.preventDefault();
+})
