@@ -1,9 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-
-
-
-
 	// Define the random tasks seperated into easy, medium and hard
 	const random_tasks = [
 		{ task: "Take the compost out", description: "Dispose of organic waste by transferring it to a compost bin.", difficulty: "easy" },
@@ -36,11 +31,19 @@ document.addEventListener("DOMContentLoaded", () => {
 		{ task: "Commit to zero waste for a month", description: "Aim to produce no waste for an entire month, focusing on reducing, reusing, and recycling.", difficulty: "hard" }
 	];
 
+	const get_cookie = (cookie_name) => {
+		const cookie = document.cookie
+			.split("; ")
+			.find((row) => row.startsWith(`${cookie_name}=`));
+
+	}
+
 	// Function to get the eco_score from cookies, default to 0 if not found
 	function getEcoScore() {
 		const eco_score_cookie = document.cookie
 			.split("; ")
 			.find((row) => row.startsWith("eco_score="));
+		console.log(eco_score_cookie ? parseInt(eco_score_cookie.split("=")[1], 10) : 0);
 		return eco_score_cookie ? parseInt(eco_score_cookie.split("=")[1], 10) : 0;
 	}
 
