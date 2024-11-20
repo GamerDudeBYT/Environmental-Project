@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		const tasks_cookie = document.cookie
 			.split("; ")
 			.find((row) => row.startsWith("uncompleted_tasks="));
-		console.log(tasks_cookie)
+		console.log(JSON.parse(decodeURIComponent(tasks_cookie.split("=")[1])));
 		return tasks_cookie ? JSON.parse(decodeURIComponent(tasks_cookie.split("=")[1])) : [];
 	}
 
