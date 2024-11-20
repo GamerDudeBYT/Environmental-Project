@@ -39,42 +39,36 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 
 	// Function to get uncompleted tasks from cookies
-	function getUncompletedTasks() {
+	const get_uncompleted_tasks = () => {
 		const tasks_cookie = document.cookie
 			.split("; ")
 			.find((row) => row.startsWith("uncompleted_tasks="));
-		console.log(JSON.parse(decodeURIComponent(tasks_cookie.split("=")[1])));
 		return tasks_cookie ? JSON.parse(decodeURIComponent(tasks_cookie.split("=")[1])) : [];
 	}
 
 	// Save uncompleted tasks to cookies
-	function saveUncompletedTasks(tasks) {
+	const saveUncompletedTasks = (tasks) => {
 		document.cookie = `uncompleted_tasks=${encodeURIComponent(JSON.stringify(tasks))}; path=/; max-age=31536000`;
 	}
 
-	// Load saved uncompleted tasks from cookies
-	const saved_tasks = getUncompletedTasks();
-
-	// Get the eco_score from cookie or default to 0
-	let eco_score = get_cookie("eco_score");
-
-	// Display the current eco_score in the DOM
-	const eco_score_p = document.getElementById("ecoscore");
-	eco_score_p.innerHTML = eco_score;
-
-	const reset_score_button = document.getElementById("reset_score_button");
-
-	reset_score_button.addEventListener("click", () => {
-		if (confirm("ARE YOU SURE YOU WANT TO WIPE SAVE")) {
-			document.cookie = `eco_score=0; path=/; max-age=31536000`; // Save the score in a cookie (1 year)
-			eco_score = 0;
-			eco_score_p.innerHTML = eco_score;
-		}
-
-	});
-
 	// The div where the tasks will be displayed
 	const tasks_list_div = document.getElementById("tasks_list");
+	const eco_score_p = document.getElementById("ecoscore");
+	const reset_score_button = document.getElementById("reset_score_button");
+
+	const saved_tasks = get_uncompleted_tasks();
+
+	let eco_score = get_cookie("eco_score");
+
+	eco_score_p.innerHTML = eco_score;
+
+	reset_score_button.addEventListener("click", () => {
+		if (confirm("Wipe Save?")) {
+			document.cookie = `eco_score=0; path=/; max-age=31536000`; // Set the eco_score cookie to 0
+			eco_score = get_cookie("eco_score"); // Get the eco score again after being reset
+			eco_score_p.innerHTML = eco_score;
+		}
+	});
 
 	// Render tasks from the saved list
 	saved_tasks.forEach(task => choose_random_task(task));
