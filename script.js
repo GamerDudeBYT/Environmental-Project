@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				new_task_difficulty.innerHTML = "Easy";
 				new_task_difficulty.classList.add("task_easy", "text");
 				new_task_div.classList.add("task_easy", "border");
-
+				console.log("Added easy task")
 				new_task_completed_button.addEventListener("click", () => {
 					updateEcoScore(100); // Easy task
 					new_task_completed_button.parentElement.parentElement.remove();
@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				new_task_difficulty.innerHTML = "Medium";
 				new_task_difficulty.classList.add("task_medium", "text");
 				new_task_div.classList.add("task_medium", "border");
-
+				console.log("Added medium task")
 				new_task_completed_button.addEventListener("click", () => {
 					updateEcoScore(200); // Medium task
 					new_task_completed_button.parentElement.parentElement.remove();
@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				new_task_difficulty.innerHTML = "Hard";
 				new_task_difficulty.classList.add("task_hard", "text");
 				new_task_div.classList.add("task_hard", "border");
-
+				console.log("Added hard task")
 				new_task_completed_button.addEventListener("click", () => {
 					updateEcoScore(300); // Hard task
 					new_task_completed_button.parentElement.parentElement.remove();
