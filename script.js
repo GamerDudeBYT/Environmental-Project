@@ -51,16 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		return true; // Prevent the default browser error handling
 	};
 
-	// Trigger some console outputs for testing
-	console.log("This is a regular log message.");
-	console.warn("This is a warning message.");
-	console.error("This is an error message.");
-
-	// Simulate an uncaught error
-	setTimeout(() => {
-		throw new Error("This is an uncaught error!");
-	}, 2000);
-
 
 
 
