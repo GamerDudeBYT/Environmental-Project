@@ -35,16 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		const cookie = document.cookie
 			.split("; ")
 			.find((row) => row.startsWith(`${cookie_name}=`));
-
-	}
-
-	// Function to get the eco_score from cookies, default to 0 if not found
-	function getEcoScore() {
-		const eco_score_cookie = document.cookie
-			.split("; ")
-			.find((row) => row.startsWith("eco_score="));
-		console.log(eco_score_cookie);
-		return eco_score_cookie ? parseInt(eco_score_cookie.split("=")[1], 10) : 0;
+		return cookie.split("=")[1]
 	}
 
 	// Function to get uncompleted tasks from cookies
@@ -52,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		const tasks_cookie = document.cookie
 			.split("; ")
 			.find((row) => row.startsWith("uncompleted_tasks="));
+		console.log(tasks_cookie)
 		return tasks_cookie ? JSON.parse(decodeURIComponent(tasks_cookie.split("=")[1])) : [];
 	}
 
@@ -64,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	const saved_tasks = getUncompletedTasks();
 
 	// Get the eco_score from cookie or default to 0
-	let eco_score = getEcoScore();
+	let eco_score = get_cookie("eco_score");
 
 	// Display the current eco_score in the DOM
 	const eco_score_p = document.getElementById("ecoscore");
