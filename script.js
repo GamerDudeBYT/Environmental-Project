@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		const eco_score_cookie = document.cookie
 			.split("; ")
 			.find((row) => row.startsWith("eco_score="));
-		console.log(eco_score_cookie ? parseInt(eco_score_cookie.split("=")[1], 10) : 0);
+		console.log(eco_score_cookie);
 		return eco_score_cookie ? parseInt(eco_score_cookie.split("=")[1], 10) : 0;
 	}
 
