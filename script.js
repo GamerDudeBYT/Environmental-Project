@@ -87,6 +87,10 @@ document.addEventListener("DOMContentLoaded", () => {
 			new_task_reject_button.parentElement.parentElement.remove();
 		});
 
+		new_task_completed_button.addEventListener("click", () => {
+			new_task_completed_button.parentElement.parentElement.remove();
+		})
+
 		// Update Eco Score based on task difficulty
 		const updateEcoScore = (points) => {
 			eco_score += points;
