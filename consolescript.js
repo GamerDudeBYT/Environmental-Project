@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		word-wrap: break-word;
 	`;
 
+	document.body.appendChild(consoleDiv);
+
 	// Function to append log messages to the div
 	function logToDiv(message, type) {
 		const newMessage = document.createElement('div');
@@ -66,5 +68,5 @@ document.addEventListener("DOMContentLoaded", () => {
 		return true; // Prevent the default browser error handling
 	};
 
-	document.body.appendChild(consoleDiv);
+
 })
