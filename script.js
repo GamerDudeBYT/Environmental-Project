@@ -85,10 +85,12 @@ document.addEventListener("DOMContentLoaded", () => {
 		new_task_reject_button.addEventListener("click", () => {
 			removeTask(random_task);
 			new_task_reject_button.parentElement.parentElement.remove();
+			console.log("Rejected Task")
 		});
 
 		new_task_completed_button.addEventListener("click", () => {
 			new_task_completed_button.parentElement.parentElement.remove();
+			console.log("Marked Task as Completed");
 		})
 
 		// Update Eco Score based on task difficulty
@@ -105,18 +107,21 @@ document.addEventListener("DOMContentLoaded", () => {
 				new_task_difficulty.classList.add("task_easy", "text");
 				new_task_div.classList.add("task_easy", "border");
 				new_task_completed_button.addEventListener("click", () => updateEcoScore(100));
+				console.log("Added Easy Task");
 				break;
 			case "medium":
 				new_task_difficulty.innerHTML = "Medium";
 				new_task_difficulty.classList.add("task_medium", "text");
 				new_task_div.classList.add("task_medium", "border");
 				new_task_completed_button.addEventListener("click", () => updateEcoScore(200));
+				console.log("Added Medium Task");
 				break;
 			case "hard":
 				new_task_difficulty.innerHTML = "Hard";
 				new_task_difficulty.classList.add("task_hard", "text");
 				new_task_div.classList.add("task_hard", "border");
 				new_task_completed_button.addEventListener("click", () => updateEcoScore(300));
+				console.log("Added Hard Task")
 				break;
 			default:
 				console.error("Error setting difficulty for new task");
@@ -155,4 +160,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("contextmenu", (e) => {
 	e.preventDefault(); // Disable right-click
+	console.log("NO RIGHT CLICK ALLOWED");
 });
