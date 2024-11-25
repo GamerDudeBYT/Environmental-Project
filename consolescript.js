@@ -1,7 +1,21 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 	// Get the output div
-	const consoleDiv = document.getElementById('consoleOutput');
+	const consoleDiv = document.createElement('div');
+
+	consoleDiv.id = "consoleOutput";
+
+	consoleDiv.style.cssText = `
+		width: 100%;
+		height: 300px;
+		overflow-y: scroll;
+		background-color: #f0f0f0;
+		border: 1px solid #ccc;
+		padding: 10px;
+		font-family: monospace;
+		white-space: pre-wrap;
+		word-wrap: break-word;
+	`;
 
 	// Function to append log messages to the div
 	function logToDiv(message, type) {
@@ -51,4 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		logToDiv(errorMessage, 'error');
 		return true; // Prevent the default browser error handling
 	};
+
+	document.body.appendChild(consoleDiv);
 })
