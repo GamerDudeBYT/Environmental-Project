@@ -30,42 +30,33 @@ document.addEventListener("DOMContentLoaded", () => {
 		{ task: "Switch to a plant-based diet for a week", description: "Adopt a plant-based diet for a week to explore healthier eating and reduce your environmental impact.", difficulty: "hard" },
 		{ task: "Commit to zero waste for a month", description: "Aim to produce no waste for an entire month, focusing on reducing, reusing, and recycling.", difficulty: "hard" }
 	];
-
+	// Get eco_score from cookies and ensure it's treated as an integer
 	const get_cookie = (cookie_name) => {
-		const cookie = document.cookie
-			.split("; ")
-			.find((row) => row.startsWith(`${cookie_name}=`));
-		return cookie.split("=")[1]
+		const cookie = document.cookie.split("; ").find(row => row.startsWith(`${cookie_name}=`));
+		return cookie ? parseInt(cookie.split("=")[1], 10) : 0;  // Default to 0 if cookie doesn't exist
 	}
 
-	// Function to get uncompleted tasks from cookies
 	const get_uncompleted_tasks = () => {
-		const tasks_cookie = document.cookie
-			.split("; ")
-			.find((row) => row.startsWith("uncompleted_tasks="));
+		const tasks_cookie = document.cookie.split("; ").find(row => row.startsWith("uncompleted_tasks="));
 		return tasks_cookie ? JSON.parse(decodeURIComponent(tasks_cookie.split("=")[1])) : [];
 	}
 
-	// Save uncompleted tasks to cookies
 	const saveUncompletedTasks = (tasks) => {
 		document.cookie = `uncompleted_tasks=${encodeURIComponent(JSON.stringify(tasks))}; path=/; max-age=31536000`;
 	}
 
-	// The div where the tasks will be displayed
 	const tasks_list_div = document.getElementById("tasks_list");
 	const eco_score_p = document.getElementById("ecoscore");
 	const reset_score_button = document.getElementById("reset_score_button");
 
-	const saved_tasks = get_uncompleted_tasks();
-
+	let saved_tasks = get_uncompleted_tasks();
 	let eco_score = get_cookie("eco_score");
-
 	eco_score_p.innerHTML = eco_score;
 
 	reset_score_button.addEventListener("click", () => {
 		if (confirm("Wipe Save?")) {
-			document.cookie = `eco_score=0; path=/; max-age=31536000`; // Set the eco_score cookie to 0
-			eco_score = get_cookie("eco_score"); // Get the eco score again after being reset
+			document.cookie = `eco_score=0; path=/; max-age=31536000`;
+			eco_score = get_cookie("eco_score");
 			eco_score_p.innerHTML = eco_score;
 		}
 	});
@@ -73,122 +64,91 @@ document.addEventListener("DOMContentLoaded", () => {
 	// Render tasks from the saved list
 	saved_tasks.forEach(task => choose_random_task(task));
 
-	// Function to add a task to the DOM
 	function choose_random_task(random_task) {
-		// This is all the same as adding the tags in manually in HTML
-		// document.createElement() makes an element specified by the text inside the function.
 		const new_task_div = document.createElement('div');
 		const new_task_title = document.createElement('h3');
 		const new_task_description = document.createElement('p');
 		const new_task_difficulty = document.createElement('p');
-
 		const new_task_button_container = document.createElement('div');
-
 		const new_task_completed_button = document.createElement('button');
 		const new_task_reject_button = document.createElement('button');
 
-		// .innerHTML is the text that you see on the screen
 		new_task_title.innerHTML = random_task.task;
 		new_task_description.innerHTML = random_task.description;
 
-		// This is the same as adding a CSS class in the HTML
 		new_task_button_container.classList.add("button_container", "right");
-
 		new_task_completed_button.innerHTML = "Completed";
 		new_task_completed_button.classList.add("button", "completed");
-
 		new_task_reject_button.innerHTML = "Reject";
 		new_task_reject_button.classList.add("button", "reject");
 
-		// .addEventListener("click") is the same as adding an onclick bit to the button
 		new_task_reject_button.addEventListener("click", () => {
 			removeTask(random_task);
 			new_task_reject_button.parentElement.parentElement.remove();
 		});
 
-		// Handle button clicks based on difficulty
+		// Update Eco Score based on task difficulty
 		const updateEcoScore = (points) => {
 			eco_score += points;
-			document.cookie = `eco_score=${eco_score}; path=/; max-age=31536000`; // Save the score in a cookie (1 year)
+			document.cookie = `eco_score=${eco_score}; path=/; max-age=31536000`;
 			eco_score_p.innerHTML = eco_score;
 			removeTask(random_task);
 		};
 
-		// A switch statement is the same as an if, elif and else statement the default bit is the else
 		switch (random_task.difficulty) {
-			// Easy Difficulty
 			case "easy":
 				new_task_difficulty.innerHTML = "Easy";
 				new_task_difficulty.classList.add("task_easy", "text");
 				new_task_div.classList.add("task_easy", "border");
-				console.log("Added easy task")
-				new_task_completed_button.addEventListener("click", () => {
-					updateEcoScore(100); // Easy task
-					new_task_completed_button.parentElement.parentElement.remove();
-				});
+				new_task_completed_button.addEventListener("click", () => updateEcoScore(100));
 				break;
-			// Medium Difficulty
 			case "medium":
 				new_task_difficulty.innerHTML = "Medium";
 				new_task_difficulty.classList.add("task_medium", "text");
 				new_task_div.classList.add("task_medium", "border");
-				console.log("Added medium task")
-				new_task_completed_button.addEventListener("click", () => {
-					updateEcoScore(200); // Medium task
-					new_task_completed_button.parentElement.parentElement.remove();
-				});
+				new_task_completed_button.addEventListener("click", () => updateEcoScore(200));
 				break;
-			// Hard Difficulty
 			case "hard":
 				new_task_difficulty.innerHTML = "Hard";
 				new_task_difficulty.classList.add("task_hard", "text");
 				new_task_div.classList.add("task_hard", "border");
-				console.log("Added hard task")
-				new_task_completed_button.addEventListener("click", () => {
-					updateEcoScore(300); // Hard task
-					new_task_completed_button.parentElement.parentElement.remove();
-				});
+				new_task_completed_button.addEventListener("click", () => updateEcoScore(300));
 				break;
-			// Error getting the difficulty
 			default:
 				console.error("Error setting difficulty for new task");
 				return;
 		}
 
-		// Assemble the task and append it to the list
 		new_task_div.appendChild(new_task_title);
 		new_task_div.appendChild(new_task_description);
 		new_task_div.appendChild(new_task_difficulty);
-
 		new_task_button_container.appendChild(new_task_completed_button);
 		new_task_button_container.appendChild(new_task_reject_button);
-
 		new_task_div.appendChild(new_task_button_container);
-
 		tasks_list_div.appendChild(new_task_div);
 	}
 
-	// Function to remove a task from the saved tasks list
+	// Remove task from saved tasks list
 	function removeTask(task) {
-		const updated_tasks = saved_tasks.filter(saved_task => saved_task.task !== task.task);
-		saveUncompletedTasks(updated_tasks);
+		saved_tasks = saved_tasks.filter(saved_task => saved_task.task !== task.task);
+		saveUncompletedTasks(saved_tasks);
 	}
 
-	// Function to choose a random task based on difficulty
+	// Function to choose and display a random task based on difficulty
 	window.choose_random_task = (difficulty) => {
-		const random_tasks_filtered = random_tasks.filter(task => task.difficulty === difficulty);
-		if (random_tasks_filtered.length === 0) {
+		const filtered_tasks = random_tasks.filter(task => task.difficulty === difficulty);
+		if (filtered_tasks.length === 0) {
 			console.error(`No tasks available for difficulty: ${difficulty}`);
 			return;
 		}
 
-		const random_task = random_tasks_filtered[Math.floor(Math.random() * random_tasks_filtered.length)];
+		const random_task = filtered_tasks[Math.floor(Math.random() * filtered_tasks.length)];
 		saved_tasks.push(random_task);
 		saveUncompletedTasks(saved_tasks);
 		choose_random_task(random_task);
 	};
 });
 
-document.addEventListener("contextmenu", (e) => { // Hehe no right click
-	e.preventDefault();
-})
+document.addEventListener("contextmenu", (e) => {
+	e.preventDefault(); // Disable right-click
+});
