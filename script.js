@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			document.cookie = `eco_score=0; path=/; max-age=31536000`;
 			eco_score = get_cookie("eco_score");
 			eco_score_p.innerHTML = eco_score;
+			console.log("Wiped Score");
 		}
 	});
 
