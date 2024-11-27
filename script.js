@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 	// Define the random tasks seperated into easy, medium and hard
 	const random_tasks = [
-		{ task: "Take the compost out", description: "Dispose of organic waste by transferring it to a compost bin this will proudce compost which you can use to fertilize your plants the average compost taken out each day is 1.5 pounds", difficulty: "easy" },
+		{ task: "Take the compost out", description: "Dispose of organic waste by transferring it to a compost bin this will proudce compost which you can use to fertilize your plants. The average compost taken out each day is 1.5 pounds", difficulty: "easy" },
 		{ task: "Take the recycling out", description: "Gather and sort recyclables, then place them in the appropriate bin to ensure they are efficiently and properly recycled ", difficulty: "easy" },
 		{ task: "Turn a device off instead of closing it", description: "Power down devices completely to save energy rather than just closing the lid or putting them in sleep mode whilst saving your work.", difficulty: "easy" },
 		{ task: "Use reusable shopping bags", description: "Opt for reusable bags when shopping to reduce plastic waste FACT: 500 billion plastic bags are used each year, lets lower that amount.", difficulty: "easy" },
