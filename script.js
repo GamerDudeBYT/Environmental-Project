@@ -1,16 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
 	// Define the random tasks seperated into easy, medium and hard
 	const random_tasks = [
-		{ task: "Take the compost out", description: "Dispose of organic waste by transferring it to a compost bin.", difficulty: "easy" },
-		{ task: "Take the recycling out", description: "Gather and sort recyclables, then place them in the appropriate bin.", difficulty: "easy" },
-		{ task: "Turn a device off instead of closing it", description: "Power down devices completely to save energy rather than just closing the lid or putting them in sleep mode.", difficulty: "easy" },
-		{ task: "Use reusable shopping bags", description: "Opt for reusable bags when shopping to reduce plastic waste.", difficulty: "easy" },
+		{ task: "Take the compost out", description: "Dispose of organic waste by transferring it to a compost bin this will proudce compost which you can use to fertilize your plants the average compost taken out each day is 1.5 pounds", difficulty: "easy" },
+		{ task: "Take the recycling out", description: "Gather and sort recyclables, then place them in the appropriate bin to ensure they are efficiently and properly recycled ", difficulty: "easy" },
+		{ task: "Turn a device off instead of closing it", description: "Power down devices completely to save energy rather than just closing the lid or putting them in sleep mode whilst saving your work.", difficulty: "easy" },
+		{ task: "Use reusable shopping bags", description: "Opt for reusable bags when shopping to reduce plastic waste FACT: 500 billion plastic bags are used each year, lets lower that amount.", difficulty: "easy" },
 		{ task: "Unplug devices when not in use", description: "Save energy by unplugging electronic devices when they are not in use.", difficulty: "easy" },
-		{ task: "Turn off the tap while brushing your teeth", description: "Conserve water by turning off the tap while brushing your teeth.", difficulty: "easy" },
-		{ task: "Use a reusable water bottle", description: "Reduce plastic waste by using a reusable water bottle instead of single-use plastic ones.", difficulty: "easy" },
-		{ task: "Donate old clothes", description: "Gather old clothes and donate them to a local charity or thrift store.", difficulty: "easy" },
+		{ task: "Turn off the tap while brushing your teeth", description: "Conserve water by turning off the tap while brushing your teeth. FACT Approximately 4 gallons of water can be wasted if the tap is left on when cleaning teeth", difficulty: "easy" },
+		{ task: "Use a reusable water bottle", description: "Reduce plastic waste by using a reusable water bottle instead of single-use plastic ones. FACT Approximately 1.3 Billion single use plastic bottles are used every day", difficulty: "easy" },
+		{ task: "Donate old clothes", description: "Gather old clothes and donate them to a local charity shop or thrift store to ensure that they are not incinerated or left to rot in a landfill FACT: Every year 92 million tonnes of clothes are dumped in landfills every year", difficulty: "easy" },
 
-		{ task: "Turn the heating off for 2 hours", description: "Save energy and lower bills by reducing electricty/gas used for heating", difficulty: "medium" },
+		{ task: "Turn the heating off for 2 hours", description: "Save energy and lower bills by reducing electricty/gas used for heating FACT: This will save about 5p (27/11/2024)- prices may change", difficulty: "medium" },
 		{ task: "Pick up 10 pieces of litter", description: "Help clean up your local environment by collecting and disposing of litter.", difficulty: "medium" },
 		{ task: "Turn all lights off for 1 hour", description: "Save energy by turning off all lights in your home for one hour.", difficulty: "medium" },
 		{ task: "Walk 1 mile", description: "Improve your fitness and reduce carbon emissions by walking instead of driving.", difficulty: "medium" },
