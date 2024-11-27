@@ -7,27 +7,24 @@
 	<link rel="stylesheet" href="navbar.css">
 	<link rel="stylesheet" href="style.css">
 	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
-	<script src="navbar.js"></script>
-	<script src="includes.js"></script>
 </head>
 
 <body>
 	<div class="navbar" id="topnav">
-		<button onclick="home_func()" class="active">Home</button>
-		<button onclick="about_func()">About</button>
-		<a href="javascript:void(0);" class="icon" onclick="navbar_func()">
+		<button id="home-btn" class="active">Home</button>
+		<button id="about-btn">About</button>
+		<a href="javascript:void(0);" class="icon" id="menu-icon">
 			<i class="fa fa-bars"></i>
 		</a>
 	</div>
 
 	<!-- Placeholder divs for dynamic content -->
-	<div id="home" style="display: none;" include-html="./home.html"></div>
-	<div id="about" style="display: none;" include-html="./about.html"></div>
+	<div id="home" include-html="./home.html"></div>
+	<div id="about" include-html="./about.html" style="display: none;"></div>
 
-	<script>
-		includeHTML();
-	</script>
-
+	<!-- JavaScript files -->
+	<script src="includes.js" defer></script>
+	<script src="navbar.js" defer></script>
 </body>
 
 </html>

@@ -1,29 +1,37 @@
 document.addEventListener("DOMContentLoaded", () => {
-	const home_div = document.getElementById("home");
-	const about_div = document.getElementById("about");
+	const homeDiv = document.getElementById("home");
+	const aboutDiv = document.getElementById("about");
+	const homeBtn = document.getElementById("home-btn");
+	const aboutBtn = document.getElementById("about-btn");
+	const menuIcon = document.getElementById("menu-icon");
+	const navbar = document.getElementById("topnav");
 
 	// Toggle responsive class for navbar
-	const navbar_func = () => {
-		var x = document.getElementById("topnav");
-		if (x.className === "navbar") {
-			x.className += " responsive";
+	menuIcon.addEventListener("click", () => {
+		if (navbar.className === "navbar") {
+			navbar.className += " responsive";
 		} else {
-			x.className = "navbar";
+			navbar.className = "navbar";
 		}
-	};
+	});
 
 	// Show the home content and hide the about content
-	const home_func = () => {
-		about_div.style.display = "none";
-		home_div.style.display = "block";
-	};
+	homeBtn.addEventListener("click", () => {
+		aboutDiv.style.display = "none";
+		homeDiv.style.display = "block";
+		homeBtn.classList.add("active");
+		aboutBtn.classList.remove("active");
+	});
 
 	// Show the about content and hide the home content
-	const about_func = () => {
-		home_div.style.display = "none";
-		about_div.style.display = "block";
-	};
+	aboutBtn.addEventListener("click", () => {
+		homeDiv.style.display = "none";
+		aboutDiv.style.display = "block";
+		aboutBtn.classList.add("active");
+		homeBtn.classList.remove("active");
+	});
 
 	// Initialize with the home section visible by default
-	home_func(); // Show Home by default when the page loads
+	homeDiv.style.display = "block";
+	homeBtn.classList.add("active");
 });
