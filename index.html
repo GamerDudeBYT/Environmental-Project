@@ -5,6 +5,7 @@
 	<title>Eco Tracker</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="navbar.css">
+	<link rel="stylesheet" href="style.css">
 	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 	<script src="navbar.js"></script>
 	<script src="includes.js"></script>
@@ -12,21 +13,20 @@
 
 <body>
 	<div class="navbar" id="topnav">
-		<button onclick="home_func()"><a class="active">Home</a></button>
-		<a><button onclick="about_func()">About</button></a>
+		<button onclick="home_func()" class="active">Home</button>
+		<button onclick="about_func()">About</button>
 		<a href="javascript:void(0);" class="icon" onclick="navbar_func()">
 			<i class="fa fa-bars"></i>
 		</a>
 	</div>
 
-	<div style="display: none;" include-html="./home.html" id="home"></div>
-	<div style="display: none;" include-html="./about.html" id="about"></div>
-
+	<!-- Placeholder divs for dynamic content -->
+	<div id="home" style="display: none;" include-html="./home.html"></div>
+	<div id="about" style="display: none;" include-html="./about.html"></div>
 
 	<script>
 		includeHTML();
 	</script>
-
 
 </body>
 
