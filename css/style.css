@@ -18,7 +18,7 @@ body {
 body {
 	position: relative;
 	background-color: var(--bg_color);
-	background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("images/3px-tile.png");
+	background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../images/3px-tile.png");
 	background-size: auto;
 	background-position: center;
 	background-repeat: repeat;
