@@ -41,15 +41,15 @@
 
 <body>
 	<div class="navbar" id="topnav">
-		<a class="active" href="./home.html">Home</a>
-		<a>About</a>
-		<a href="./test.html">test</a>
+		<a class="active"><button onclick="home_func()">Home</button></a>
+		<a><button onclick="about_func()">About</button></a>
 		<a href="javascript:void(0);" class="icon" onclick="navbar_func()">
 			<i class="fa fa-bars"></i>
 		</a>
 	</div>
 
-	<div include-html="./includes.html"></div>
+	<div style="display: none;" include-html="./home.html" id="home"></div>
+	<div style="display: none;" include-html="./about.html" id="about"></div>
 
 
 	<script>
