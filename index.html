@@ -13,6 +13,7 @@
 <script>
 	function includeHTML() {
 		var z, i, elmnt, file, xhttp;
+		console.log("Include HTML")
 		/*loop through a collection of all HTML elements:*/
 		z = document.getElementsByTagName("*");
 		for (i = 0; i < z.length; i++) {
@@ -28,6 +29,7 @@
 						if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
 						/*remove the attribute, and call this function once more:*/
 						elmnt.removeAttribute("w3-include-html");
+						console.log("Trying to include HTML file")
 						includeHTML();
 					}
 				}
