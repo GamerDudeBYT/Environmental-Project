@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
 				try {
 					const response = await fetch(file);
 					if (response.ok) {
-						console.log(element);
 						element.innerHTML = await response.text();
 					} else {
 						element.innerHTML = "Page not found.";
