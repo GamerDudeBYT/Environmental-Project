@@ -19,7 +19,7 @@
 		<section class="inset-container">
 			<h2>Your eco score is:</h2>
 			<p id="ecoscore">0</p>
-			<button id="reset_score_button">Reset Score (Debug)</button>
+			<utton id="reset_score_button">Reset Score (Debug)</button>
 		</section>
 
 		<section class="inset-container">

@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 						element.innerHTML = "Page not found.";
 					}
 					element.removeAttribute("include-html");
-					includeHTML(); // Recursively include nested includes
+					includeHTML();
 				} catch (error) {
 					element.innerHTML = "Error loading the content.";
 				}
