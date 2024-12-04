@@ -30,6 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
 		{ task: "Switch to a plant-based diet for a week", description: "Adopt a plant-based diet for a week to explore healthier eating and reduce your environmental impact.", difficulty: "hard" },
 		{ task: "Commit to zero waste for a month", description: "Aim to produce no waste for an entire month, focusing on reducing, reusing, and recycling.", difficulty: "hard" }
 	];
+
+	const tasks_list_div = document.getElementById("tasks_list");
+	const eco_score_p = document.getElementById("ecoscore");
+	const reset_score_button = document.getElementById("reset_score_button");
+
 	// Get eco_score from cookies and ensure it's treated as an integer
 	const get_cookie = (cookie_name) => {
 		const cookie = document.cookie.split("; ").find(row => row.startsWith(`${cookie_name}=`));
@@ -44,10 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	const saveUncompletedTasks = (tasks) => {
 		document.cookie = `uncompleted_tasks=${encodeURIComponent(JSON.stringify(tasks))}; path=/; max-age=31536000`;
 	}
-
-	const tasks_list_div = document.getElementById("tasks_list");
-	const eco_score_p = document.getElementById("ecoscore");
-	const reset_score_button = document.getElementById("reset_score_button");
 
 	let saved_tasks = get_uncompleted_tasks();
 	let eco_score = get_cookie("eco_score");
