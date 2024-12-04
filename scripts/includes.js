@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 	function includeHTML() {
 		const elements = document.querySelectorAll("[include-html]");
+		console.log(elements);
 		elements.forEach(async (element) => {
 			const file = element.getAttribute("include-html");
 			if (file) {
@@ -8,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
 					const response = await fetch(file);
 					if (response.ok) {
 						element.innerHTML = await response.text();
-						console.log(element.innerHTML);
 					} else {
 						element.innerHTML = "Page not found.";
 					}
