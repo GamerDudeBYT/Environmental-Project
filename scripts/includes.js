@@ -19,7 +19,4 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 		});
 	}
-
-	includeHTML();
 })
-
