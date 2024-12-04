@@ -30,7 +30,6 @@
 	<script src="./scripts/consolescript.js"></script>
 	<script src="./scripts/navbar.js"></script>
 	<script src="./scripts/includes.js" defer></script>
-	<script src="./scripts/script.js" defer></script>
 </body>
 
 </html>
