@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		{ task: "Use a reusable water bottle", description: "Reduce plastic waste by using a reusable water bottle instead of single-use plastic ones. ", difficulty: "easy" },
 		{ task: "Donate old clothes", description: "Gather old clothes and donate them to a local charity shop or thrift store to ensure that they are not incinerated or left to rot in a landfill FACT: Every year 92 million tonnes of clothes are dumped in landfills every year", difficulty: "easy" },
 
-		{ task: "Turn the heating off for 2 hours", description: "Save energy and lower bills by reducing electricty/gas used for heating FACT: This will save about 5p (27/11/2024)- prices may change", difficulty: "medium" },
+		{ task: "Turn the heating off for 2 hours", description: "Save energy and lower bills by reducing electricty/gas used for heating", difficulty: "medium" },
 		{ task: "Pick up 10 pieces of litter", description: "Help clean up your local environment by collecting and disposing of litter.", difficulty: "medium" },
 		{ task: "Turn all lights off for 1 hour", description: "Save energy by turning off all lights in your home for one hour.", difficulty: "medium" },
 		{ task: "Walk 1 mile", description: "Improve your fitness and reduce carbon emissions by walking instead of driving.", difficulty: "medium" },

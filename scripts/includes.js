@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				} catch (error) {
 					element.innerHTML = "Error loading the content.";
 				}
+				includeHTML();
 			}
 		});
 	}
