@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		{ task: "Use reusable shopping bags", description: "Opt for reusable bags when shopping to reduce plastic waste ", difficulty: "easy" },
 		{ task: "Unplug devices when not in use", description: "Save energy by unplugging electronic devices when they are not in use.", difficulty: "easy" },
 		{ task: "Turn off the tap while brushing your teeth", description: "Conserve water by turning off the tap while brushing your teeth. ", difficulty: "easy" },
-		{ task: "Use a reusable water bottle", description: "Reduce plastic waste by using a reusable water bottle instead of single-use plastic ones. FACT Approximately 1.3 Billion single use plastic bottles are used every day", difficulty: "easy" },
+		{ task: "Use a reusable water bottle", description: "Reduce plastic waste by using a reusable water bottle instead of single-use plastic ones. ", difficulty: "easy" },
 		{ task: "Donate old clothes", description: "Gather old clothes and donate them to a local charity shop or thrift store to ensure that they are not incinerated or left to rot in a landfill FACT: Every year 92 million tonnes of clothes are dumped in landfills every year", difficulty: "easy" },
 
 		{ task: "Turn the heating off for 2 hours", description: "Save energy and lower bills by reducing electricty/gas used for heating FACT: This will save about 5p (27/11/2024)- prices may change", difficulty: "medium" },
