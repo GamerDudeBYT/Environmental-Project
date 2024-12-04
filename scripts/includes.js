@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					const response = await fetch(file);
 					if (response.ok) {
 						element.innerHTML = await response.text();
+						console.log(element.innerHTML);
 					} else {
 						element.innerHTML = "Page not found.";
 					}
