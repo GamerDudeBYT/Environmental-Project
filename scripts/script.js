@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+	print(document.body);
 	// Define the random tasks seperated into easy, medium and hard
 	const random_tasks = [
 		{ task: "Take the compost out", description: "Dispose of organic waste by transferring it to a compost bin this will proudce compost which you can use to fertilize your plants. The average compost taken out each day is 1.5 pounds", difficulty: "easy" },
