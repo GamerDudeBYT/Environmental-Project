@@ -158,8 +158,9 @@ document.addEventListener("contextmenu", (e) => {
 	console.log("NO RIGHT CLICK ALLOWED");
 });
 
-function doThings() {
+document.addEventListener("DOMContentLoaded", () => {
 	const tasks_list_div = document.getElementById("tasks_list");
 	const eco_score_p = document.getElementById("ecoscore");
 	const reset_score_button = document.getElementById("reset_score_button");
-}
+})
+
