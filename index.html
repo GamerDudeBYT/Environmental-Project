@@ -1,36 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 	<title>Eco Tracker</title>
-	<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="e44647b7-2d4e-4f2c-80ee-6a7a6786660a"
-		data-blockingmode="auto" type="text/javascript"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="./css/style.css">
 	<link rel="icon" type="image/x-icon" href="./images/favicon.ico">
 </head>
 
 <body>
-	<div class="navbar" id="topnav">
-		<button id="home-btn" data-target="home" class="active">Home</button>
-		<button id="about-btn" data-target="about">About</button>
-		<button id="facts-btn" data-target="facts">Facts</button>
-		<a href="javascript:void(0);" class="icon" id="menu-icon">
-			<i class="fa fa-bars"></i>
-		</a>
-	</div>
 
-	<!-- Placeholder divs for dynamic content -->
-	<div id="home" include-html="./home.html"></div>
-	<div id="about" include-html="./about.html" style="display: none;"></div>
-	<div id="facts" include-html="./facts.html" style="display: none;"></div>
-	<!-- JavaScript files -->
+	<div id="navbar" include-html="./navbar.html"></div>
 
-	<script src="./scripts/consolescript.js"></script>
+	<header>
+		<h1>Eco Tracker</h1>
+	</header>
+
+	<main>
+		<section class="inset-container">
+			<p>There are 3 levels of difficulty:</p>
+			<ul>
+				<li class="task_easy text">Easy: 100 Points</li>
+				<li class="task_medium text">Medium: 200 Points</li>
+				<li class="task_hard text">Hard: 300 Points</li>
+			</ul>
+		</section>
+
+		<section class="inset-container">
+			<h2>Your eco score is:</h2>
+			<p id="ecoscore">0</p>
+			<button id="reset_score_button">Reset Score (Debug)</button>
+		</section>
+
+		<section class="inset-container">
+			<h2>Tasks:</h2>
+			<div class="button-container left">
+				<button class="button task_easy text" onclick="choose_random_task('easy')"
+					aria-label="Get a random easy task">
+					<span class="button-icon">&#x2714;</span> Random Easy Task
+				</button>
+				<button class="button task_medium text" onclick="choose_random_task('medium')"
+					aria-label="Get a random medium task">
+					<span class="button-icon">⚙️</span> Random Medium Task
+				</button>
+				<button class="button task_hard text" onclick="choose_random_task('hard')"
+					aria-label="Get a random hard task">
+					<span class="button-icon">&#x1F525;</span> Random Hard Task
+				</button>
+			</div>
+
+			<div id="tasks_list" class="tasks_list">
+				<!-- New tasks will appear here -->
+			</div>
+		</section>
+	</main>
+
+	<footer>
+
+	</footer>
+
+	<script src="./scripts/script.js"></script>
 	<script src="./scripts/navbar.js"></script>
-	<script src="./scripts/script.js" defer></script>
 	<script src="./scripts/includes.js"></script>
-
+	<script src="./scripts/consolescript.js"></script>
 
 </body>
 
