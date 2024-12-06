@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
 	const random_tasks = [
 		{
 			"task": "Take the compost out",
