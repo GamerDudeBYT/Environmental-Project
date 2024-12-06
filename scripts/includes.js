@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
-	function includeHTML() {
+document.addEventListener("DOMContentLoaded", async () => {
+	async function includeHTML() {
 		const elements = document.querySelectorAll("[include-html]");
 		elements.forEach(async (element) => {
 			const file = element.getAttribute("include-html");
@@ -20,6 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	}
 
-	includeHTML();
+	includeHTML().then(() => {
+		doThings();
+	});
 })
 
