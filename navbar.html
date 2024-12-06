@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+	<title>Eco Tracker</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
 <body>
 	<div class="navbar" id="topnav">
-		<button id="home-btn" data-target="home" class="active">Home</button>
-		<button id="about-btn" data-target="about">About</button>
-		<button id="facts-btn" data-target="facts">Facts</button>
+		<a href="./index.html"><button id="home-btn" data-target="index" class="active">Home</button></a>
+		<a href="./about.html"><button id="about-btn" data-target="about">About</button></a>
+		<a href="./facts.html"><button id="facts-btn" data-target="facts">Facts</button></a>
+
+
+
 		<a href="javascript:void(0);" class="icon" id="menu-icon">
 			<i class="fa fa-bars"></i>
 		</a>
 	</div>
 
 	<script src="./scripts/navbar.js"></script>
+
 </body>
 
 </html>
