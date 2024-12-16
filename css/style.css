@@ -170,22 +170,3 @@ h2 {
 	background-color: #ddd;
 	color: black;
 }
-
-.navbar .icon {
-	display: none;
-}
-
-@media screen and (max-width: 600px) {
-	.navbar button:not(:first-child) {
-		display: none;
-	}
-
-	.navbar .icon {
-		display: block;
-	}
-
-	.navbar.responsive button {
-		display: block;
-		text-align: left;
-	}
-}
