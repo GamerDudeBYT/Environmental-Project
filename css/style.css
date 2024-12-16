@@ -159,7 +159,9 @@ h2 {
 	cursor: pointer;
 }
 
-.navbar button.active {
+#index .navbar button.index-active,
+#about .navbar button.about-active,
+#facts .navbar button.facts-active {
 	background-color: #4CAF50;
 	color: white;
 }
