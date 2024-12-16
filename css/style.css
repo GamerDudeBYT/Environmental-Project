@@ -170,3 +170,7 @@ h2 {
 	background-color: #ddd;
 	color: black;
 }
+
+img {
+	border-radius: 8px;
+}
