@@ -145,6 +145,7 @@ h2 {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
+	border-radius: 10px;
 }
 
 .navbar button {
